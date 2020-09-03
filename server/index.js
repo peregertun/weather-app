@@ -2,20 +2,21 @@ const app = require("express");
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const axios = require("axios");
+require("dotenv").config();
 
-const url = "https://jsonplaceholder.typicode.com/posts/1";
-// const apiUrl = "http://api.openweathermap.org/data/2.5/";
+// const url = "https://jsonplaceholder.typicode.com/posts/1";
 let unit = true;
 const cityID = 2711533;
-const apiKey = "f97d92a14a6c1188251c76bf2e9b81a3";
 
 async function getWeatherData() {
   let weatherRequest = await axios
-    // .get(`${apiUrl}weather?id=${cityID}&units=${unit}&&appid=${apiKey}`)
-    .get(url)
+    .get(
+      `${process.env.URL}weather?id=${cityID}&units=${unit}&&appid=${process.env.API_KEY}`
+    )
+    // .get(url)
     .then((response) => {
       let data = response.data;
-      console.log(response);
+      // console.log(response);
       return data;
     })
     .catch((error) => {
@@ -30,9 +31,8 @@ io.on("connection", (socket) => {
     while (true) {
       await new Promise((resolve) => setTimeout(resolve, 10000));
       const data = await getWeatherData();
-      //   console.log(data);
-      console.log("sending: " + JSON.stringify(data, null, 2));
 
+      console.log("sending: " + JSON.stringify(data, null, 2));
       socket.broadcast.emit("weatherData", data);
     }
   }
