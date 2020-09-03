@@ -7,7 +7,7 @@ import Content from "./components/Content";
 import propTypes from "prop-types";
 import io from "socket.io-client";
 
-// const socket = io.connect("http://localhost:5000");
+const socket = io.connect("http://localhost:5000");
 
 class App extends React.Component {
   constructor() {
