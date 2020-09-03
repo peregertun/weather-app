@@ -1,13 +1,160 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  min-height: 800px;
+  font-family: "Brown bold", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(188, 172, 157);
+  background: linear-gradient(0deg, rgba(188, 172, 157, 1) 45%, rgba(109, 112, 120, 1) 95%);
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 200;
+}
+
+form>input {
+  height: 60px;
+  padding: 5px 30px;
+  width: 50%;
+  border: none;
+  background-color: #a59f9f;
+}
+
+form>button {
+  height: 60px;
+  width: 25%;
+  border: none;
+  background: #a59f9f;
+}
+
+form>button:hover {
+  text-shadow: none;
+  background: #bcac9d;
+}
+
+@media (max-width: 500px) {
+  form>input {
+    height: 60px;
+    padding: 3px 5px 3px 15px;
+    width: 40%;
+    border: none;
+    border-radius: 0;
+    background-color: #a59f9f;
+  }
+  ::placeholder {
+    color: gray;
+  }
+  form>button {
+    height: 60px;
+    padding: 3px 5px;
+    width: 30%;
+    border: none;
+    background: #a59f9f;
+  }
+  form>button:hover {
+    text-shadow: none;
+    background: #bcac9d;
+  }
+  .swipe-container {
+    padding: 0px;
+  }
+}
+
+.unit-button {
+  border: none;
+  background: none;
+}
+
+.slider-container {
+  /* height: 100px; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0px; */
+}
+
+.slider {
+  width: 800px;
+  text-align: center;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+
+/* .slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+} */
+
+.slides>div {
+  width: 80px;
+  height: 135px;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.slides>div>p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.forecast-icon {
+  margin: 0px;
+  width: 60px;
+}
+
+.swipe-container {
+  /* background-color: rgb(255, 255, 255, 0.6); */
+  padding: 15px;
+}
+
+.carousel div {
+  padding: 0px;
+}
+
+.details-table {
+  margin: 0 auto;
+  width: 100%;
+  text-align: left;
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+td {
+  height: 50px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 5px;
+}
+
+th {
+  padding-top: 5px;
 }
